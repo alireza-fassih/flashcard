@@ -23,3 +23,13 @@ podman run -dt \
 --security-opt label=disable \
 --env MYSQL_ROOT_PASSWORD=root \
 docker.io/library/mysql
+
+## setup mysql
+podman exec -it mysql /bin/bash
+mysql -u root -p
+
+create database flashcard;
+create user 'flashcard'@'localhost' IDENTIFIED BY 'flashcard';
+GRANT ALL PRIVILEGES ON  flashcard.* to 'flashcard'@'localhost';
+ALTER DATABASE flashcard CHARACTER SET 'utf8';
+ALTER DATABASE flashcard COLLATE = 'utf8_bin';

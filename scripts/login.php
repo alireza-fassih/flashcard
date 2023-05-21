@@ -1,5 +1,6 @@
 <?php
-session_start();
+include_once( "incl.php" );
+
 
 $has_error = false;
 
