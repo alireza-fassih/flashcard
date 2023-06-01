@@ -2,10 +2,12 @@
 
 session_start();
 
-$pdo = new PDO("mysql:host=localhost;dbname=flashcard", 'flashcard', 'flashcard');
-$pdo->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
+$_CONFIG = parse_ini_file('app.env');
 
-$unbufferedResult = $pdo->query("SELECT Name FROM City");
-foreach ($unbufferedResult as $row) {
-    echo $row['Name'] . PHP_EOL;
+$DB = new mysqli($_CONFIG["DB_HOST"], $_CONFIG["DB_USER"], $_CONFIG["DB_PASS"], $_CONFIG["DB_NAME"]);
+
+
+if ($DB -> connect_errno) {
+  echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
+  exit();
 }

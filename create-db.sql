@@ -1,8 +1,8 @@
 
-create database app;
+CREATE TABLE FC_USER(
+    ID BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    USERNAME VARCHAR(255),
+    PASS VARCHAR(255)
+);
 
-create table users(
-    id bigint primary key auto increment,
-    username varchar(255),
-    pass varchar(255)
-)
+INSERT INTO FC_USER (USERNAME, PASS) VALUES ('', '');
