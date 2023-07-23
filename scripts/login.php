@@ -1,31 +1,30 @@
 <?php
 require_once( "incl.php" );
 
+
+function redirectToHome() {
+    redirectTo("/index.php");
+}
+
+if(isset($_SESSION[ USER_ID_SESSION_KEY ])) {
+    redirectToHome();
+}
+
+
 $has_error = false;
 
 if( isset($_POST['username'], $_POST['password']) ) {
 
-    $username = $DB->real_escape_string($_POST['username']);
-    $password = $DB->real_escape_string(hash("sha256", $_POST['password']));
-
-    $stmt = $DB->prepare("SELECT ID FROM FC_USER WHERE USERNAME=? AND PASS=?"); 
-    $stmt->bind_param('ss', $username, $password);
-    $stmt -> execute();
-
-    $stmt -> bind_result($user_id);
-    $stmt -> fetch();
-    $stmt -> close();
+    $user_id = loadUserIdForLogin($DB, $_POST['username'], $_POST['password']);
 
     if( !is_null($user_id) && is_numeric($user_id) ) {
-        echo "User found {$user_id}";
-    
-        exit(0);
+        $_SESSION[ USER_ID_SESSION_KEY ] = $user_id;
+        redirectToHome();
     }
 
     $has_error = true;
 }
 
-$DB->close();
 ?>
 <html>
     <head>
@@ -40,7 +39,7 @@ $DB->close();
             ?>
             <lable>username</lable>
             <input type="text" name="username" />
-
+            <br />
             <lable>password</lable>
             <input type="password" name="password" />
 

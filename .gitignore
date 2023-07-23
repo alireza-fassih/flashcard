@@ -1,2 +1,3 @@
-
+config/app.env
+scripts/.user.ini
 scripts/app.env
