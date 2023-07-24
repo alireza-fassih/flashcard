@@ -3,6 +3,7 @@
 const USER_ID_SESSION_KEY = "user_id";
 
 require_once('userdao.php');
+require_once('word.php');
 
 session_start();
 
@@ -15,6 +16,9 @@ if ($DB->connect_errno) {
   exit();
 }
 
+
+$DB->query("SET time_zone='Asia/Tehran'");
+$DB->query("SET NAMES utf8");
 
 
 
