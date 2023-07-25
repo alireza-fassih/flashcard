@@ -17,7 +17,6 @@ if ($DB->connect_errno) {
 }
 
 
-$DB->query("SET time_zone='Asia/Tehran'");
 $DB->query("SET NAMES utf8");
 
 
