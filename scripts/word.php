@@ -24,4 +24,18 @@ function saveNewWord($db, $word, $meaning) {
 
 
 
+function loadWordById($mysqli, $id) {
+    $sql = "SELECT * FROM FC_WORD WHERE ID=" . intval($id);
+    $word = null;
+    if ($result = $mysqli->query($sql)) {
+        while($obj = $result->fetch_object()){
+            $word = $obj;
+        }
+    }
+    $result->close();
+    return $word;
+}
+
+
+
 

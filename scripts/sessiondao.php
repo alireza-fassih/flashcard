@@ -32,3 +32,21 @@ function listAllNotDoneSession($mysqli) {
     $result->close();
     return $sessions;
 }
+
+
+
+function getToWordOfSession($mysqli, $sid) {
+    $sql = "SELECT * FROM `FC_SESSION_WORD` WHERE `SESSION_ID`=" . intval($sid) . " ORDER BY `ID` LIMIT 1";
+    $fsw = null;
+    if ($result = $mysqli->query($sql)) {
+        while($obj = $result->fetch_object()){
+            $fsw = $obj;
+        }
+    }
+    $result->close();
+    
+    return array(
+        "info" => $fsw,
+        "word" => loadWordById($mysqli, $fsw->WORD_ID )
+    );
+}
