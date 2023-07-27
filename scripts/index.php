@@ -8,11 +8,7 @@ redirectToLoginInUserNotLoggedIn();
 <html>
     <head>
     </head>
-
     <body>  
-        <a href="/changepass.php">change password</a>
-        <br />
-        <a href="/addword.php">add word</a>
-        <br />
+        <?php include("links.php") ?>
     </body>
 </htlm>

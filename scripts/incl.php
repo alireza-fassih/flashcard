@@ -4,6 +4,7 @@ const USER_ID_SESSION_KEY = "user_id";
 
 require_once('userdao.php');
 require_once('word.php');
+require_once('sessiondao.php');
 
 session_start();
 
@@ -31,4 +32,16 @@ function redirectToLoginInUserNotLoggedIn() {
 function redirectTo( $loc ) {
   header("location: $loc");
   exit();
+}
+
+function createNewXssToken() {
+  $rand = bin2hex(random_bytes(10)); 
+  $_SESSION['xssToken'] = $rand;
+  return $rand;
+}
+
+function getXssToken() {
+  $token = @$_SESSION['xssToken'];
+  unset($_SESSION['xssToken']);
+  return $token;
 }

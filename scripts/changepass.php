@@ -24,6 +24,7 @@ if(isset($current, $new, $repeat) && $new == $repeat) {
     <head>
     </head>
     <body>
+        <?php include("links.php") ?>
         <form method="post" >
             <lable>current pass</lable>
             <input type="password" name="current" />

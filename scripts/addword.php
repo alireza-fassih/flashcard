@@ -18,6 +18,7 @@ if(isset($word, $meaning)) {
     <head>
     </head>
     <body>
+        <?php include("links.php") ?>
         <form method="post" action="addword.php">
             <lable>word</lable>
             <input type="text" name="word" />
