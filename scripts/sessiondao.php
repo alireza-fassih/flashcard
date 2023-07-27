@@ -50,3 +50,13 @@ function getToWordOfSession($mysqli, $sid) {
         "word" => loadWordById($mysqli, $fsw->WORD_ID )
     );
 }
+
+function removeWordFromSession($mysqli, $sid) {
+    $sql = "DELETE FROM `FC_SESSION_WORD` WHERE `ID`=" . intval($sid);
+    $mysqli->query($sql);
+}
+
+function removeSession($mysqli, $sid) {
+    $sql = "DELETE FROM `FC_SESSION` WHERE `ID`=" . intval($sid);
+    $mysqli->query($sql);
+}

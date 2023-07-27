@@ -1,16 +1,6 @@
 <?php
 
 
-class Word {
-    public $world;
-    public $meaning;
-    public $createDate;
-    public $wrongCount;
-    public $correctCount;
-}
-
-
-
 function saveNewWord($db, $word, $meaning) {
     $w = $db->real_escape_string($word);
     $m = $db->real_escape_string($meaning);
@@ -39,3 +29,12 @@ function loadWordById($mysqli, $id) {
 
 
 
+function increamentCorrectCountOfWord($mysqli, $word) {
+    $sql = "UPDATE `FC_WORD` SET `CORRECT_COUNT`=`CORRECT_COUNT`+1  WHERE `ID`=" . intval($word);
+    $mysqli->query($sql);
+}
+
+function increamentWrongCountOfWord($mysqli, $word) {
+    $sql = "UPDATE `FC_WORD` SET `WRONG_COUNT`=`WRONG_COUNT`+1  WHERE `ID`=" . intval($word);
+    $mysqli->query($sql);
+}
