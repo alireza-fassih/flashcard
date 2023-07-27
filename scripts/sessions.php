@@ -23,10 +23,12 @@ if( isset($receivedToken, $create) && $receivedToken == $oldToken ) {
 
 
 $xssToken = createNewXssToken();
+$sessions = listAllNotDoneSession($DB);
 ?>
 
 <html>
     <head>
+    <?php include("head.php") ?>
     </head>
     <body>
         <?php include("links.php") ?>
@@ -34,5 +36,27 @@ $xssToken = createNewXssToken();
             <input type="hidden"  name="xssToken" value="<?= $xssToken ?>"/>
             <button type="submit" name="create" value="true" >new sesstion</button>
         </form>
+
+
+        <br />
+
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Create date</th>
+                <th>action</th>
+            </tr>
+
+            <?php
+                for($x = 0; $x < count($sessions); $x++) {
+                    $s = $sessions[$x];
+                    echo "<tr>";
+                    echo "<td>" . $s->ID ."</td>";
+                    echo "<td>" . $s->CREATEDATE ."</td>";
+                    echo "<td><a href='/reviewSession.php?id=$s->ID'>Go to Session</a></td>";
+                    echo "</tr>";
+                }
+            ?>
+        </table>
     </body>
 </html>

@@ -28,7 +28,7 @@ if( isset($_POST['username'], $_POST['password']) ) {
 ?>
 <html>
     <head>
-
+    <?php include("head.php") ?>
     </head>
     <body>
         <form method="post" action="login.php">

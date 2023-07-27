@@ -22,6 +22,7 @@ if(isset($current, $new, $repeat) && $new == $repeat) {
 
 <html>
     <head>
+    <?php include("head.php") ?>
     </head>
     <body>
         <?php include("links.php") ?>

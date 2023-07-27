@@ -18,3 +18,17 @@ function fillSessionWithWords($db, $sid) {
     } 
     return $db->affected_rows;
 }
+
+
+function listAllNotDoneSession($mysqli) {
+    $sql = "SELECT * FROM FC_SESSION WHERE IS_DONE=0";
+    $sessions = array();
+    if ($result = $mysqli->query($sql)) {
+        while($obj = $result->fetch_object()){
+            $sessions[] = $obj;
+        }
+
+    }
+    $result->close();
+    return $sessions;
+}
