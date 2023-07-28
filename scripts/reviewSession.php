@@ -47,6 +47,8 @@ $xssToken = createNewXssToken();
 
         <a href="#" onclick="showMeaning();">show meaning</a>
         <br />
+        <br />
+        <br />
 
         <form method="post" >
             <input type="hidden" name="word" value="<?= $topWord['word']->ID ?>" />
