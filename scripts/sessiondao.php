@@ -44,6 +44,13 @@ function getToWordOfSession($mysqli, $sid) {
         }
     }
     $result->close();
+
+    if($fsw == null) {
+        array(
+            "info" => null,
+            "word" => null
+        );
+    }
     
     return array(
         "info" => $fsw,
