@@ -11,9 +11,7 @@ $ok = @$_POST["ok"];
 $no = @$_POST["no"];
 
 if(isset($receivedXssToken, $word, $ws) && $oldToken == $receivedXssToken) {
-
     removeWordFromSession($DB, $ws);
-
     if( isset($ok) && $ok == "true") {
         increamentCorrectCountOfWord($DB, $word);
     } else if (isset($no) && $no == "true" ) {
@@ -22,16 +20,12 @@ if(isset($receivedXssToken, $word, $ws) && $oldToken == $receivedXssToken) {
 
 }
 
-
-
 $topWord = getToWordOfSession($DB, $sId);
-print_r( $topWord );
 
 if( $topWord['info'] == null ) {
     echo "session id done";
     removeSession($DB, $sId);
     redirectTo("/sessions.php");
-    exit();
 }
 
 $xssToken = createNewXssToken();
