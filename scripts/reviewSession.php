@@ -23,7 +23,6 @@ if(isset($receivedXssToken, $word, $ws) && $oldToken == $receivedXssToken) {
 $topWord = getToWordOfSession($DB, $sId);
 
 if( $topWord['info'] == null ) {
-    echo "session id done";
     removeSession($DB, $sId);
     redirectTo("/sessions.php");
 }
