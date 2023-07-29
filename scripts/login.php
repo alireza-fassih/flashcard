@@ -32,19 +32,32 @@ if( isset($_POST['username'], $_POST['password']) ) {
     <?php include("head.php") ?>
     </head>
     <body>
-        <form method="post" action="login.php">
-            <?php 
-                if($has_error) {
-                    echo "<p>username or password not found</p>";
-                }
-            ?>
-            <lable>username</lable>
-            <input type="text" name="username" />
-            <br />
-            <lable>password</lable>
-            <input type="password" name="password" />
-
-            <button type="submit" >login</button>
-        </form>
+        <div class="container">
+            <div class="card text-center">
+                <div class="card-header">
+                    Login Form
+                </div>
+                <div class="card-body">
+                    <form method="post" action="login.php">
+                        <?php 
+                            if($has_error) {
+                                echo "<p>username or password not found</p>";
+                            }
+                        ?>
+                        <div class="mb-3">
+                            <lable class="form-label">username</lable>
+                            <input type="text" class="form-control" name="username" />
+                        </div>
+                        <div class="mb-3">
+                            <lable class="form-label">password</lable>
+                            <input type="password" class="form-control" name="password" />
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" >login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
