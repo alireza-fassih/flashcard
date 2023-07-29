@@ -38,3 +38,16 @@ function increamentWrongCountOfWord($mysqli, $word) {
     $sql = "UPDATE `FC_WORD` SET `WRONG_COUNT`=`WRONG_COUNT`+1  WHERE `ID`=" . intval($word);
     $mysqli->query($sql);
 }
+
+
+function loadWordsPage($mysqli) {
+    $sql = "SELECT * FROM FC_WORD";
+    $word = array();
+    if ($result = $mysqli->query($sql)) {
+        while($obj = $result->fetch_object()){
+            $word[] = $obj;
+        }
+    }
+    $result->close();
+    return $word;
+}
