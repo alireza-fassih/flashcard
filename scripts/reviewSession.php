@@ -29,7 +29,7 @@ if( $topWord['info'] == null ) {
 
 $xssToken = createNewXssToken();
 ?>
-
+<!doctype html>
 <html>
     <head>
     <?php include("head.php") ?>

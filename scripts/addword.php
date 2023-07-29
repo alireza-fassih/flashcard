@@ -14,6 +14,7 @@ if(isset($word, $meaning)) {
 }
 
 ?>
+<!doctype html>
 <html>
     <head>
     <?php include("head.php") ?>

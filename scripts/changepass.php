@@ -19,7 +19,7 @@ if(isset($current, $new, $repeat) && $new == $repeat) {
 
 
 ?>
-
+<!doctype html>
 <html>
     <head>
     <?php include("head.php") ?>

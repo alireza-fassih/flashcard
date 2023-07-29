@@ -25,7 +25,7 @@ if( isset($receivedToken, $create) && $receivedToken == $oldToken ) {
 $xssToken = createNewXssToken();
 $sessions = listAllNotDoneSession($DB);
 ?>
-
+<!doctype html>
 <html>
     <head>
     <?php include("head.php") ?>

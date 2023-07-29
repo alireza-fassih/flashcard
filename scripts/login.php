@@ -26,6 +26,7 @@ if( isset($_POST['username'], $_POST['password']) ) {
 }
 
 ?>
+<!doctype html>
 <html>
     <head>
     <?php include("head.php") ?>

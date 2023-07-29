@@ -5,6 +5,7 @@ redirectToLoginInUserNotLoggedIn();
 
 
 ?>
+<!doctype html>
 <html>
     <head>
     <?php include("head.php") ?>

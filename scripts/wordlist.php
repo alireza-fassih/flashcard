@@ -8,6 +8,7 @@ redirectToLoginInUserNotLoggedIn();
 $words = loadWordsPage($DB);
 
 ?>
+<!doctype html>
 <html>
     <head>
     <?php include("head.php") ?>
