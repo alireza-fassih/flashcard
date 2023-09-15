@@ -46,7 +46,7 @@ $xssToken = createNewXssToken();
                         -
                         wrong count: <?= $topWord['word']->WRONG_COUNT ?>
                     </p>
-                    <p class="card-text" id="meaning" style="visibility: hidden;">'
+                    <p class="card-text" id="meaning" style="visibility: hidden;">
                         <?= $topWord['word']->MEANING ?>
                     </p>
                 </div>
