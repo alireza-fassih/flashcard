@@ -14,3 +14,4 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         localDir: "scripts"
         forceSsl: "true"
+        options: "--exclude app.env --exclude .htaccess --delete"
