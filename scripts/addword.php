@@ -7,9 +7,10 @@ redirectToLoginInUserNotLoggedIn();
 $word = @$_POST['word'];
 $meaning = @$_POST['meaning'];
 
+$infos = array();
 if(isset($word, $meaning)) {
     if( saveNewWord($DB, $word, $meaning) ) {
-        echo "OK";
+        $infos[] = "{$word} added.";
     }
 }
 
@@ -21,14 +22,27 @@ if(isset($word, $meaning)) {
     </head>
     <body>
         <?php include("links.php") ?>
-        <form method="post" action="addword.php">
-            <lable>word</lable>
-            <input type="text" name="word" />
-            <br />
-            <lable>meaning</lable>
-            <textarea type="text" name="meaning"  rows="4" cols="50" ></textarea>
-            <br />
-            <button type="submit" >save</button>
-        </form>
+        <main class="container">
+            <?php
+                foreach($infos as $v){
+                    echo '<div class="alert alert-success" role="alert">';
+                    echo $v;
+                    echo '</div>';
+                }
+            ?>
+            <form method="post" action="addword.php">
+                <div class="form-group">
+                    <label for="word">Word</label>
+                    <input type="text" class="form-control" name="word" id="word" />
+                </div>
+                <div class="form-group">
+                    <label for="meaning">Meaning</label>
+                    <textarea class="form-control" id="meaning" name="meaning"  rows="4" cols="50"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" >save</button>
+                </div>
+            </form>
+        </main>
     </body>
 </html>
