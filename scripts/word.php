@@ -26,7 +26,17 @@ function loadWordById($mysqli, $id) {
     return $word;
 }
 
-
+function updateWordAndMeaning($wordId, $word, $meaning) {
+    global $DB;
+    $w = $DB->real_escape_string($word);
+    $m = $DB->real_escape_string($meaning);
+    $stmt = $DB->prepare("UPDATE `FC_WORD` SET `WORD`=?, `MEANING`=? WHERE `ID`=?"); 
+    $stmt->bind_param('ssi', $w, $m, $wordId);
+    $stmt->execute();
+    $affected = $stmt->affected_rows;
+    $stmt->close();
+    return $affected == 1;
+}
 
 
 function increamentCorrectCountOfWord($mysqli, $word) {
