@@ -40,13 +40,24 @@ function getXssToken() {
 function printNotifications() {
   global $_NOTIFICATIONS;
   foreach($_NOTIFICATIONS as $n){
-    echo "<div class='alert alert-" . $n['level'] . "' role='alert'>" . $n['message'] . "</div";
+    echo "<div class='alert alert-" . $n['level'] . "' role='alert'>" . $n['message'] . "</div>";
   }
 }
 
 function addSuccessNotification($msg) {
   global $_NOTIFICATIONS;
   $_NOTIFICATIONS[] = array("level"=>"success", "message"=> $msg);
+}
+
+function addErrorNotification($msg) {
+  global $_NOTIFICATIONS;
+  $_NOTIFICATIONS[] = array("level"=>"danger", "message"=> $msg);
+}
+
+
+function captureDbError() {
+  global $DB;
+  addErrorNotification("database error: " . $DB->error);
 }
 
 
