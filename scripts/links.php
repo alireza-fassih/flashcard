@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="/changepass.php">change password</a>
+                    <a class="nav-link" href="/user-change-pass.php">change password</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/word-add.php">add word</a>
