@@ -3,10 +3,8 @@ require_once("incl.php");
 redirectToLoginInUserNotLoggedIn();
 
 $wordId = @$_GET['id'];
-
 $word = @$_POST['word'];
 $meaning = @$_POST['meaning'];
-
 
 if(isset($word, $meaning, $wordId)) {
     if( updateWordAndMeaning($wordId, $word, $meaning ) ) {
@@ -20,18 +18,6 @@ if( isset($wordId) ) {
 }
 
 
+$GENERAL_PAGE_INCLUDE =  __DIR__ . "/fc-templates/word.php";
+include( __DIR__ . "/fc-templates/general-page.php" );
 ?>
-<!doctype html>
-<html>
-    <head>
-    <?php include("head.php") ?>
-    </head>
-    <body>
-        <?php include("links.php") ?>
-        <main class="container">
-            <?php printNotifications(); ?>
-            <?php include( __DIR__ . "/fc-templates/word.php" ) ?>
-        </main>
-        <?php include("footer.php") ?>
-    </body>
-</html>

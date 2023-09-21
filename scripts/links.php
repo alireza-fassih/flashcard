@@ -11,7 +11,7 @@
                     <a class="nav-link" href="/changepass.php">change password</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/addword.php">add word</a>
+                    <a class="nav-link" href="/word-add.php">add word</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/wordlist.php">word list</a>
