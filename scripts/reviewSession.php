@@ -80,6 +80,7 @@ $xssToken = createNewXssToken();
 
             
         </main>
+        <?php include("footer.php") ?>
     </body>
     <script  type="text/javascript">
         function showMeaning() {

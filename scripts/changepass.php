@@ -38,5 +38,6 @@ if(isset($current, $new, $repeat) && $new == $repeat) {
             <br />
             <button type="submit" >save</button>
         </form>
+        <?php include("footer.php") ?>
     </body>
 </html>

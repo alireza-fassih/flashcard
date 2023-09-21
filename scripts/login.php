@@ -59,5 +59,6 @@ if( isset($_POST['username'], $_POST['password']) ) {
                 </div>
             </div>
         </div>
+        <?php include("footer.php") ?>
     </body>
 </html>

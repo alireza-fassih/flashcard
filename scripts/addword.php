@@ -44,5 +44,6 @@ if(isset($word, $meaning)) {
                 </div>
             </form>
         </main>
+        <?php include("footer.php") ?>
     </body>
 </html>

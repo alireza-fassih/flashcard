@@ -12,5 +12,6 @@ redirectToLoginInUserNotLoggedIn();
     </head>
     <body>  
         <?php include("links.php") ?>
+        <?php include("footer.php") ?>
     </body>
 </htlm>
