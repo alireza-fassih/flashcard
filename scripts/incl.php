@@ -8,9 +8,11 @@ require_once('sessiondao.php');
 
 session_start();
 
+$_NOTIFICATIONS = array();
+
+
 $_CONFIG = parse_ini_file('app.env');
 $DB = new mysqli($_CONFIG["DB_HOST"], $_CONFIG["DB_USER"], $_CONFIG["DB_PASS"], $_CONFIG["DB_NAME"]);
-
 
 if ($DB->connect_errno) {
   echo "Failed to connect to MySQL: " . $DB->connect_error;
@@ -44,4 +46,17 @@ function getXssToken() {
   $token = @$_SESSION['xssToken'];
   unset($_SESSION['xssToken']);
   return $token;
+}
+
+
+function printNotifications() {
+  global $_NOTIFICATIONS;
+  foreach($_NOTIFICATIONS as $n){
+    echo "<div class='alert alert-" . $n['level'] . "' role='alert'>" . $n['message'] . "</div";
+  }
+}
+
+function addSuccessNotification($msg) {
+  global $_NOTIFICATIONS;
+  $_NOTIFICATIONS[] = array("level"=>"success", "message"=> $msg);
 }

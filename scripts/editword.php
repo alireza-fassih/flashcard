@@ -1,18 +1,7 @@
 <?php
 require_once("incl.php");
-
 redirectToLoginInUserNotLoggedIn();
 
-
-$word = @$_POST['word'];
-$meaning = @$_POST['meaning'];
-
-
-if(isset($word, $meaning)) {
-    if( saveNewWord($DB, $word, $meaning) ) {
-        addSuccessNotification("{$word} added.");
-    }
-}
 
 ?>
 <!doctype html>
@@ -23,8 +12,14 @@ if(isset($word, $meaning)) {
     <body>
         <?php include("links.php") ?>
         <main class="container">
-            <?php printNotifications(); ?>
-            <form method="post" action="addword.php">
+            <?php
+                foreach($infos as $v){
+                    echo '<div class="alert alert-success" role="alert">';
+                    echo $v;
+                    echo '</div>';
+                }
+            ?>
+            <form method="post">
                 <div class="form-group">
                     <label for="word">Word</label>
                     <input type="text" class="form-control" name="word" id="word" />
