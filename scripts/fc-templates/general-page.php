@@ -9,7 +9,11 @@ if(!isset( $GENERAL_PAGE_INCLUDE )) {
     <?php include( __DIR__ . "/../head.php" ) ?>
     </head>
     <body>
-        <?php include( __DIR__ . "/../links.php") ?>
+        <?php
+        if(!isset($GENERAL_PAGE_NO_NAV)) { 
+            include( __DIR__ . "/../links.php");
+        }
+        ?>
         <main class="container">
             <?php printNotifications(); ?>
             <?php include( $GENERAL_PAGE_INCLUDE  ) ?>

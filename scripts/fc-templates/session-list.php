@@ -21,7 +21,7 @@
                 "<td>" . $s->ID ."</td>" .
                 "<td>" . $s->CREATEDATE ."</td>" .
                 "<td>" .
-                    "<a href='/reviewSession.php?id=$s->ID'>Go to Session</a>" . 
+                    "<a href='/session-review.php?id=$s->ID'>Go to Session</a>" . 
                 "</td>" .
             "</tr>";
     }
