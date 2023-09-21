@@ -1,3 +1,4 @@
 config/app.env
 scripts/.user.ini
 scripts/app.env
+scripts/fc-include/app.env

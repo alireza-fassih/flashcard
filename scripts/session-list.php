@@ -1,5 +1,5 @@
 <?php
-require_once("incl.php");
+require_once( __DIR__ . "/fc-include/include.php");
 redirectToLoginInUserNotLoggedIn();
 
 

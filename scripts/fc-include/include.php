@@ -2,9 +2,9 @@
 
 const USER_ID_SESSION_KEY = "user_id";
 
-require_once('userdao.php');
-require_once('word.php');
-require_once('sessiondao.php');
+require_once( __DIR__ . '/userdao.php');
+require_once( __DIR__ . '/word.php');
+require_once(__DIR__ . '/sessiondao.php');
 
 session_start();
 
@@ -62,7 +62,7 @@ function captureDbError() {
 
 
 
-$_CONFIG = parse_ini_file('app.env');
+$_CONFIG = parse_ini_file( __DIR__ . '/app.env');
 $DB = new mysqli($_CONFIG["DB_HOST"], $_CONFIG["DB_USER"], $_CONFIG["DB_PASS"], $_CONFIG["DB_NAME"]);
 
 if ($DB->connect_errno) {
