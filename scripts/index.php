@@ -4,14 +4,6 @@ require_once("incl.php");
 redirectToLoginInUserNotLoggedIn();
 
 
+$GENERAL_PAGE_INCLUDE =  __DIR__ . "/fc-templates/index.php";
+include( __DIR__ . "/fc-templates/general-page.php" );
 ?>
-<!doctype html>
-<html>
-    <head>
-    <?php include("head.php") ?>
-    </head>
-    <body>  
-        <?php include("links.php") ?>
-        <?php include("footer.php") ?>
-    </body>
-</htlm>
