@@ -14,7 +14,7 @@
                     <a class="nav-link" href="/word-add.php">add word</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/wordlist.php">word list</a>
+                    <a class="nav-link" href="/word-list.php">word list</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/sessions.php">sessions</a>
