@@ -15,19 +15,13 @@
         <a href="#" class=" btn btn-primary btn-lg" onclick="$('#meaning').toggle();">show meaning</a>
     </div>
 
-    <div class="card-body row">
-        <form method="post" class="col-6">
+    <div class="card-body">
+        <form method="post">
             <input  type="hidden" name="remining" value="<?= $_VIEW_DATA['remining'] ?>"  />
             <input  type="hidden" name="word" value="<?= $topWord['word']->ID ?>" />
             <input  type="hidden" name="ws" value="<?= $topWord['info']->ID ?>" /> 
             <input  type="hidden"  name="xssToken" value="<?= $xssToken ?>"/>
             <button type="submit" class="btn btn-success btn-lg" name="ok" value="true" >ok</button>
-        </form>
-        <form method="post" class="col-6">
-            <input  type="hidden" name="remining" value="<?= $_VIEW_DATA['remining'] ?>"  />
-            <input  type="hidden" name="word" value="<?= $topWord['word']->ID ?>" />
-            <input  type="hidden" name="ws" value="<?= $topWord['info']->ID ?>" /> 
-            <input  type="hidden" name="xssToken" value="<?= $xssToken ?>"/>
             <button type="submit" class="btn btn-danger btn-lg" name="no" value="true" >no</button>
         </form>
     </div>
