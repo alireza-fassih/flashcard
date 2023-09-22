@@ -1,12 +1,11 @@
 <form method="post" >
     <input type="hidden"  name="xssToken" value="<?= $_VIEW_DATA['xss-token'] ?>"/>
-    <button type="submit" name="create" value="true" >new sesstion</button>
+    <div class="form-group">
+        <button class="btn btn-success" type="submit" name="create" value="true" >new sesstion</button>
+    </div>
 </form>
 
-
-<br />
-
-<table>
+<table class="table">
     <tr>
         <th>Id</th>
         <th>Create date</th>
@@ -21,7 +20,9 @@
                 "<td>" . $s->ID ."</td>" .
                 "<td>" . $s->CREATEDATE ."</td>" .
                 "<td>" .
-                    "<a href='/session-review.php?id=$s->ID'>Go to Session</a>" . 
+                    "<a class='btn btn-primary' role='button' href='/session-review.php?id=$s->ID'>" . 
+                        "<i class='bi bi-book'></i>" . 
+                    "</a>" . 
                 "</td>" .
             "</tr>";
     }

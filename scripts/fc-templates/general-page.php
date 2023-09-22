@@ -14,7 +14,7 @@ if(!isset( $GENERAL_PAGE_INCLUDE )) {
             include( __DIR__ . "/links.php");
         }
         ?>
-        <main class="container">
+        <main class="container mt-3">
             <?php printNotifications(); ?>
             <?php include( $GENERAL_PAGE_INCLUDE  ) ?>
         </main>
