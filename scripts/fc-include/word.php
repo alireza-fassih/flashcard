@@ -2,10 +2,8 @@
 
 
 function saveNewWord($db, $word, $meaning) {
-    $w = $db->real_escape_string($word);
-    $m = $db->real_escape_string($meaning);
     $stmt = $db->prepare("INSERT INTO FC_WORD( WORD, MEANING, CREATEDATE, CORRECT_COUNT, WRONG_COUNT) VALUES (?, ?, now(), 0, 0)"); 
-    $stmt->bind_param('ss', $w, $m);
+    $stmt->bind_param('ss', $word, $meaning);
     $stmt->execute();
     $affected = $stmt->affected_rows;
     $stmt->close();
@@ -28,10 +26,8 @@ function loadWordById($mysqli, $id) {
 
 function updateWordAndMeaning($wordId, $word, $meaning) {
     global $DB;
-    $w = $DB->real_escape_string($word);
-    $m = $DB->real_escape_string($meaning);
     $stmt = $DB->prepare("UPDATE `FC_WORD` SET `WORD`=?, `MEANING`=? WHERE `ID`=?"); 
-    $stmt->bind_param('ssi', $w, $m, $wordId);
+    $stmt->bind_param('ssi', $word, $meaning, $wordId);
     $stmt->execute();
     $affected = $stmt->affected_rows;
     $stmt->close();

@@ -7,7 +7,7 @@
             wrong count: <?= $topWord['word']->WRONG_COUNT ?>
         </p>
         <p class="card-text" id="meaning" style="display:none";>
-            <?= $topWord['word']->MEANING ?>
+            <?= nl2br($topWord['word']->MEANING) ?>
         </p>
     </div>
 
