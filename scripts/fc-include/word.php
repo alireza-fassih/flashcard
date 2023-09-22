@@ -57,3 +57,11 @@ function loadWordsPage($mysqli) {
     $result->close();
     return $word;
 }
+
+function word_remove($id) {
+    $r1 = executeQueryForAffectedRows("DELETE FROM `FC_SESSION_WORD` WHERE `WORD_ID`=?", "i", array(intval($id)));
+    $r2 = executeQueryForAffectedRows("DELETE FROM `FC_WORD` WHERE `ID`=?", "i", array(intval($id)));
+
+    addInfoNotification("$r1 word remove from sessions");
+    addInfoNotification("$r2 word remove from db");
+}

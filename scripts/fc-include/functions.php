@@ -53,3 +53,13 @@ function captureDbError() {
     global $DB;
     addErrorNotification("database error: " . $DB->error);
 }
+
+function executeQueryForAffectedRows($sql, $bind, $args) {
+    global $DB;
+    $stmt = $DB->prepare($sql); 
+    $stmt->bind_param($bind, ...$args);
+    $stmt->execute();
+    $affected = $stmt->affected_rows;
+    $stmt->close();
+    return $affected;
+}
