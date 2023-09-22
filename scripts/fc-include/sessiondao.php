@@ -67,3 +67,19 @@ function removeSession($mysqli, $sid) {
     $sql = "DELETE FROM `FC_SESSION` WHERE `ID`=" . intval($sid);
     $mysqli->query($sql);
 }
+
+
+
+function sessions_count_remining_words($sid) {
+    global $DB;
+    $sql = "SELECT COUNT(`ID`) as WC FROM `FC_SESSION_WORD` WHERE `SESSION_ID`=?";
+    $stmt = $DB->prepare($sql); 
+    $stmt->bind_param("i", $sid);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    $r = $result->fetch_assoc()['WC'];
+    $stmt->close();
+    $result->close();
+    return $r;
+}

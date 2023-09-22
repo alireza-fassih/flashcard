@@ -10,6 +10,8 @@ $ws = @$_POST["ws"];
 $ok = @$_POST["ok"];
 $no = @$_POST["no"];
 
+$remining = @$_POST['remining'];
+
 if(isset($receivedXssToken, $word, $ws) && $oldToken == $receivedXssToken) {
     removeWordFromSession($DB, $ws);
     if( isset($ok) && $ok == "true") {
@@ -17,8 +19,16 @@ if(isset($receivedXssToken, $word, $ws) && $oldToken == $receivedXssToken) {
     } else if (isset($no) && $no == "true" ) {
         increamentWrongCountOfWord($DB, $word);
     }
-
 }
+
+if(!isset($remining)) {
+    $remining = sessions_count_remining_words( intval($sId) );
+}
+
+
+addInfoNotification( "in this session $remining word(s) is remaining" );
+
+$_VIEW_DATA['remining'] = $remining - 1;
 
 $topWord = getToWordOfSession($DB, $sId);
 

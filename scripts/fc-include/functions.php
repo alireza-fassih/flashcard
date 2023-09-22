@@ -44,6 +44,10 @@ function addErrorNotification($msg) {
     $_NOTIFICATIONS[] = array("level" => "danger", "message" => $msg);
 }
 
+function addInfoNotification($msg) {
+    global $_NOTIFICATIONS;
+    $_NOTIFICATIONS[] = array("level" => "primary", "message" => $msg);
+}
 
 function captureDbError() {
     global $DB;
